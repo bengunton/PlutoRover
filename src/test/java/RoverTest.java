@@ -48,4 +48,13 @@ public class RoverTest {
         assertThat(rover.getY(), is(y));
         assertEquals(rover.getDirection(), d);
     }
+
+    @Test
+    public void turningRightChangesDirection() {
+        Rover rover = new Rover();
+
+        assertPosition(rover, 0, 0, Direction.N);
+        rover.sendCommand("R");
+        assertPosition(rover, 0, 0, Direction.E);
+    }
 }

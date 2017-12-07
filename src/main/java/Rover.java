@@ -28,6 +28,14 @@ public class Rover {
         if (command.equals("B")) {
             this.yCoord--;
         }
+
+        if (command.equals("R")) {
+            this.rotateRight();
+        }
+    }
+
+    private void rotateRight() {
+        this.direction = direction.rotateRight();
     }
 
     public Object getDirection() {
