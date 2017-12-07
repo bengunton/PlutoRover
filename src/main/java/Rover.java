@@ -32,10 +32,18 @@ public class Rover {
         if (command.equals("R")) {
             this.rotateRight();
         }
+
+        if (command.equals("L")) {
+            this.rotateLeft();
+        }
     }
 
     private void rotateRight() {
         this.direction = direction.rotateRight();
+    }
+
+    private void rotateLeft() {
+        this.direction = direction.rotateLeft();
     }
 
     public Object getDirection() {

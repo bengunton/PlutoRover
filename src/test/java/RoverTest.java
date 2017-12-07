@@ -57,4 +57,17 @@ public class RoverTest {
         rover.sendCommand("R");
         assertPosition(rover, 0, 0, Direction.E);
     }
+
+    @Test
+    public void repeatedRotationUpdatesDirection() {
+        Rover rover = new Rover();
+
+        assertPosition(rover, 0, 0, Direction.N);
+        rover.sendCommand("R");
+        rover.sendCommand("R");
+        rover.sendCommand("L");
+        rover.sendCommand("L");
+        rover.sendCommand("L");
+        assertPosition(rover, 0, 0, Direction.W);
+    }
 }
