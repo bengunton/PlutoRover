@@ -29,23 +29,23 @@ public class RoverTest {
     public void canMoveForwardOneSquare() {
         Rover rover = new Rover();
 
-        int RoverX = rover.getX();
-        int RoverY = rover.getY();
-
-        // confirm that we start at (0, 0)
-        assertThat(RoverX, is(0));
-        assertThat(RoverY, is(0));
-        // confirm that we start facing North
-        assertEquals(rover.getDirection(), Direction.N);
-
+        assertPosition(rover, 0, 0, Direction.N);
         rover.sendCommand("F");
+        assertPosition(rover, 0, 1, Direction.N);
+    }
 
-        RoverX = rover.getX();
-        RoverY = rover.getY();
-        // confirm that we are now at (0, 1)
-        assertThat(RoverX, is(0));
-        assertThat(RoverY, is(1));
-        // confirm that we are still facing North
-        assertEquals(rover.getDirection(), Direction.N);
+    @Test
+    public void canMoveBackwardOneSquare() {
+        Rover rover = new Rover();
+
+        assertPosition(rover, 0, 0, Direction.N);
+        rover.sendCommand("B");
+        assertPosition(rover, 0, -1, Direction.N);
+    }
+
+    private void assertPosition(Rover rover, int x, int y, Direction d) {
+        assertThat(rover.getX(), is(x));
+        assertThat(rover.getY(), is(y));
+        assertEquals(rover.getDirection(), d);
     }
 }

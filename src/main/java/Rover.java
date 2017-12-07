@@ -24,6 +24,10 @@ public class Rover {
         if (command.equals("F")) {
             this.yCoord++;
         }
+
+        if (command.equals("B")) {
+            this.yCoord--;
+        }
     }
 
     public Object getDirection() {
