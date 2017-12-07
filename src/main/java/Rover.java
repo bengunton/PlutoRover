@@ -13,40 +13,55 @@ public class Rover {
     }
 
     public int getX() {
-        return this.xCoord;
+        return xCoord;
     }
 
     public int getY() {
-        return this.yCoord;
+        return yCoord;
     }
 
     public void sendCommand(String command) {
+
         if (command.equals("F")) {
-            this.yCoord++;
+            moveForward();
         }
 
         if (command.equals("B")) {
-            this.yCoord--;
+            moveBackward();
         }
 
         if (command.equals("R")) {
-            this.rotateRight();
+            rotateRight();
         }
 
         if (command.equals("L")) {
-            this.rotateLeft();
+            rotateLeft();
         }
     }
 
+    private void moveBackward() {
+        // update X and y coordinates with appropriate values depending on
+        // direction
+        xCoord -= this.direction.getMoveX();
+        yCoord -= this.direction.getMoveY();
+    }
+
+    private void moveForward() {
+        // update X and y coordinates with appropriate values depending on
+        // direction
+        xCoord += this.direction.getMoveX();
+        yCoord += this.direction.getMoveY();
+    }
+
     private void rotateRight() {
-        this.direction = direction.rotateRight();
+        direction = direction.rotateRight();
     }
 
     private void rotateLeft() {
-        this.direction = direction.rotateLeft();
+        direction = direction.rotateLeft();
     }
 
     public Object getDirection() {
-        return this.direction;
+        return direction;
     }
 }

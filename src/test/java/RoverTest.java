@@ -70,4 +70,14 @@ public class RoverTest {
         rover.sendCommand("L");
         assertPosition(rover, 0, 0, Direction.W);
     }
+
+    @Test
+    public void canTurnAndMoveForward() {
+        Rover rover = new Rover();
+
+        assertPosition(rover, 0, 0, Direction.N);
+        rover.sendCommand("R");
+        rover.sendCommand("F");
+        assertPosition(rover, 1, 0, Direction.E);
+    }
 }
