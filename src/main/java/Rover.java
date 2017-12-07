@@ -20,6 +20,7 @@ public class Rover {
         return yCoord;
     }
 
+    // Send a string command to the rover for it to act on
     public void sendCommand(String command) {
 
         if (command.equals("F")) {
@@ -39,13 +40,7 @@ public class Rover {
         }
     }
 
-    private void moveBackward() {
-        // update X and y coordinates with appropriate values depending on
-        // direction
-        xCoord -= this.direction.getMoveX();
-        yCoord -= this.direction.getMoveY();
-    }
-
+    // Move the rover forward one space
     private void moveForward() {
         // update X and y coordinates with appropriate values depending on
         // direction
@@ -53,10 +48,20 @@ public class Rover {
         yCoord += this.direction.getMoveY();
     }
 
+    // Move the rover backward one space
+    private void moveBackward() {
+        // update X and y coordinates with appropriate values depending on
+        // direction
+        xCoord -= this.direction.getMoveX();
+        yCoord -= this.direction.getMoveY();
+    }
+
+    // Rotate rover 90 degrees right
     private void rotateRight() {
         direction = direction.rotateRight();
     }
 
+    // Rotate rover 90 degrees left
     private void rotateLeft() {
         direction = direction.rotateLeft();
     }
