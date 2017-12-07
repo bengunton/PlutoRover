@@ -22,22 +22,35 @@ public class Rover {
 
     // Send a string command to the rover for it to act on
     public void sendCommand(String command) {
-
-        if (command.equals("F")) {
-            moveForward();
+        // iterates over chars in the command, executing them until one fails
+        for (int i = 0; i < command.length(); i++) {
+            if (!executeInstruction(command.charAt(i))) {
+                break;
+            }
         }
+    }
 
-        if (command.equals("B")) {
-            moveBackward();
+    // Exectute a single character command, returns true if movement was
+    // successful
+    public boolean executeInstruction(char instruction) {
+        switch (instruction) {
+            case 'F':
+                moveForward();
+                break;
+            case 'B':
+                moveBackward();
+                break;
+            case 'R':
+                rotateRight();
+                break;
+            case 'L':
+                rotateLeft();
+                break;
+            default:
+                System.err.println("Invalid instruction received");
+                return false;
         }
-
-        if (command.equals("R")) {
-            rotateRight();
-        }
-
-        if (command.equals("L")) {
-            rotateLeft();
-        }
+        return true;
     }
 
     // Move the rover forward one space

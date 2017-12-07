@@ -80,4 +80,13 @@ public class RoverTest {
         rover.sendCommand("F");
         assertPosition(rover, 1, 0, Direction.E);
     }
+
+    @Test
+    public void canExectuteStringOfCommands() {
+        Rover rover = new Rover();
+
+        assertPosition(rover, 0, 0, Direction.N);
+        rover.sendCommand("FFRFFFLBLB");
+        assertPosition(rover, 4, 1, Direction.W);
+    }
 }
