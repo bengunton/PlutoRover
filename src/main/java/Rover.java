@@ -4,10 +4,12 @@
 public class Rover {
     private int xCoord;
     private int yCoord;
+    private Direction direction;
 
     public Rover() {
         this.xCoord = 0;
         this.yCoord = 0;
+        this.direction = Direction.N;
     }
 
     public int getX() {
@@ -22,5 +24,9 @@ public class Rover {
         if (command.equals("F")) {
             this.yCoord++;
         }
+    }
+
+    public Object getDirection() {
+        return this.direction;
     }
 }
