@@ -1,7 +1,7 @@
 /**
  * Created by ben on 07/12/17.
  */
-public class Rover {
+public class Rover implements WorldObject{
     private int xCoord;
     private int yCoord;
     private Direction direction;
